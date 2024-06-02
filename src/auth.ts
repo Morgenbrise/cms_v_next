@@ -59,17 +59,16 @@ export const {
   ],
   callbacks: {
     async session({ session, token, user }) {
-      if (true) {
-        return session;
-      }
       if (!token) {
         return session;
       }
+      console.log("session ----> ", session);
       session.user = token.user as User;
       return session;
     },
     async jwt({ token, user, trigger, session }) {
       if (user) {
+        console.log("jwt ----> ", user);
         token.user = user;
       }
       if (trigger === "update" && session) {

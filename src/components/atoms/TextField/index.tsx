@@ -1,13 +1,10 @@
-"use client";
 import {
   Controller,
   FieldPath,
   FieldValues,
-  useController,
   UseControllerProps,
 } from "react-hook-form";
 import { TextField as MuiTextField, TextFieldProps } from "@mui/material";
-import { forwardRef } from "react";
 
 type MuiProps = {
   textFieldProps?: TextFieldProps;
@@ -26,13 +23,19 @@ const TextField = <
       name={props.name}
       render={({ field: { onChange, onBlur, value, ref } }) => (
         <MuiTextField
+          type={textFieldProps?.type}
           onChange={onChange}
           ref={ref}
           value={value}
+          size={textFieldProps?.size}
           label={textFieldProps?.label}
           variant="outlined"
           name={textFieldProps?.name}
-          className="mb-2"
+          className={textFieldProps?.className}
+          style={{
+            marginTop: "0.5rem",
+            marginBottom: "0.5rem",
+          }}
           // error={!!error}
           // helperText={!!error && error.message}
         />

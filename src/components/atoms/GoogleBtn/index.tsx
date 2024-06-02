@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "@/components/atoms/Button";
 import { Button as MuiButton, ButtonProps } from "@mui/material";
 import { googleAuthenticate } from "@/lib/actions";
@@ -11,14 +13,20 @@ const GoogleBtn = () => {
     undefined
   );
 
+  const submit = () => {
+    console.log("SUBMIT");
+    dispatchGoogle();
+  };
+
   return (
-    <form className="flex flex-col" action={dispatchGoogle}>
+    <form className="flex flex-col">
       <Button
         type="submit"
         variant="outlined"
         component="label"
         tabIndex={-1}
         className="border-gray-300"
+        onClick={submit}
         startIcon={
           <Image
             src="/images/icon/google.png"

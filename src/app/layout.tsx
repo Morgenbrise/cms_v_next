@@ -1,3 +1,5 @@
+import Header from "@/components/atoms/Header";
+import MainWrapper from "@/components/molecules/MainWapper";
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { Inter } from "next/font/google";
@@ -18,7 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="w-full h-full">
       <body className={`${inter.className} bg-white w-full h-full`}>
-        <SessionProvider>{children}</SessionProvider>
+        <SessionProvider>
+          <Header />
+          <main className="h-[calc(100%-150px)] w-full px-[30px] pt-4">
+            {/* @ts-expect-error Async Server Component */}
+            <MainWrapper>{children}</MainWrapper>
+          </main>
+        </SessionProvider>
       </body>
     </html>
   );

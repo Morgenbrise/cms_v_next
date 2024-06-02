@@ -1,6 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body.visibility {
+  visibility:hidden
+}
+
+ul li {
+  padding: 0;
+  margin: 0;
+}
 /* 
 :root {
   --foreground-rgb: 0, 0, 0;

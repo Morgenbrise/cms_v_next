@@ -19,6 +19,7 @@ export async function authenticate(
 
 export async function googleAuthenticate() {
   try {
+    console.log("GOOGLE");
     await signIn("google");
   } catch (error) {
     if (error instanceof AuthError) {
